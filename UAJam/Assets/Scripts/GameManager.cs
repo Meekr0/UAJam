@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Campfire> campfires;
 
     [SerializeField] private List<EvilSpirit> evilSpirits;
+    
+    [SerializeField] private List<Collectible> collectibles;
+    private int collectiblesCollected = 0;
 
     [SerializeField] private Tilemap baseTileMap;
     [SerializeField] private Tilemap pathTileMap;
@@ -50,6 +53,31 @@ public class GameManager : MonoBehaviour
                 playerInRange = true;
         }
 
+        foreach (Collectible collectible in collectibles)
+        {
+            if (!collectible.CheckIfCollected())
+            {
+                double distanceToPlayer = Vector3.Distance(collectible.transform.position, player.transform.position);
+                if (distanceToPlayer < maxDistanceFromCampfire)
+                {
+                    playerInRange = true;
+                    player.hasControls = false;
+                    collectible.activateSpirit();
+
+                    //Canvas stuff here
+                    //Dialogue
+
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        player.hasControls = true;
+                        isInSpiritWorld = false;
+                        collectible.CollectMe();
+                        collectible.gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
+
         if (playerInRange)
             isInSpiritWorld = true;
         else
@@ -64,7 +92,6 @@ public class GameManager : MonoBehaviour
                 evilSpirit.setVisibility(true);
             }
             pathTileMap.gameObject.SetActive(true);
-            //hidePathTileMap.gameObject.SetActive(false);
         }
         else
         {
@@ -73,12 +100,10 @@ public class GameManager : MonoBehaviour
                 evilSpirit.setVisibility(false);
             }
             pathTileMap.gameObject.SetActive(false);
-            //hidePathTileMap.gameObject.SetActive(true);
         }
         
     }
-
-    public void changeSpiritWorld(bool val)
+    public void ChangeSpiritWorld(bool val)
     {
         isInSpiritWorld = val;
     }
