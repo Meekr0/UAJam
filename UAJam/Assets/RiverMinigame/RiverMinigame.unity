@@ -393,6 +393,10 @@ MonoBehaviour:
   maxX: -3.13
   minY: -3.76
   Maxy: 4.11
+<<<<<<< Updated upstream
+=======
+  NewPosition: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
 --- !u!212 &1853696806
 SpriteRenderer:
   m_ObjectHideFlags: 0
