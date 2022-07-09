@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class WrethGameManager : MonoBehaviour
 {
-    [SerializeField] private float TimeToSurvive;
+    [SerializeField] private float TimeToSurvive = 30f;
     static public WrethGameManager Instance;
+
+    private float Timer;
     // Start is called before the first frame update
     private void Awake()
     {
+        Timer = TimeToSurvive;
         Instance = this;
     }
 
@@ -21,7 +24,12 @@ public class WrethGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Timer -= Time.deltaTime;
+        if (Timer <= 0)
+        {
+            Debug.Log("Win");
+        }
+
     }
 
     public void EndGameWin()

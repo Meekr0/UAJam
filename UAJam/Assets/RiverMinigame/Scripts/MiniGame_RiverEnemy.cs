@@ -11,7 +11,7 @@ public class MiniGame_RiverEnemy : MonoBehaviour
     [SerializeField] private Sprite[] Sprites;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == " Player")
+        if(collision.gameObject.name == "Player")
         {
             WrethGameManager.Instance.EndGameLose();
         }
