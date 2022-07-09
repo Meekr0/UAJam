@@ -123,6 +123,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &106841746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 895748344856176656, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+  m_PrefabInstance: {fileID: 895748344751959682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &106841749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106841746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ac380517934f94494e62c8fb6d349a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &596156923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5860,6 +5877,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
+--- !u!1001 &895748344751959682
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 895748344856176656, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_Name
+      value: Goal
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10158706
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176657, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 895748344856176662, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
 --- !u!1001 &4026241043492204646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6138,6 +6216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 106841749}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: camera
       value: 
