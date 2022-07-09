@@ -5,9 +5,9 @@ using UnityEngine;
 public class Campfire : MonoBehaviour
 {
 
-    public Player Player;
+    /*public Player Player;
     public GameManager GameManager;
-    double distanceToPlayer;
+    double distanceToPlayer;*/
     
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,7 @@ public class Campfire : MonoBehaviour
     void FixedUpdate()
     {
         
+        /*
         distanceToPlayer = Vector3.Distance(this.transform.position, Player.transform.position);
         if (distanceToPlayer <= 1)
         {
@@ -29,6 +30,7 @@ public class Campfire : MonoBehaviour
         {
             GameManager.changeSpiritWorld(false);
         }
+        */
         
     }
 }
