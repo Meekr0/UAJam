@@ -1376,6 +1376,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &466686128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8903347962069957062, guid: 66635756467f774488b8b90c0f234435, type: 3}
+  m_PrefabInstance: {fileID: 4026241043492204646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a991672990d08a4e85742e146a475dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &507628801
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,7 +2337,7 @@ Transform:
   - {fileID: 1211317825}
   - {fileID: 1716961771}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &804903021
 GameObject:
@@ -15416,12 +15427,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105069563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118325159
 GameObject:
@@ -22581,17 +22592,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1915276223 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4026241044329511897, guid: 66635756467f774488b8b90c0f234435, type: 3}
-  m_PrefabInstance: {fileID: 4026241043492204646}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a991672990d08a4e85742e146a475dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1936392852
 GameObject:
   m_ObjectHideFlags: 0
@@ -23440,6 +23440,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8903347962069957063, guid: 66635756467f774488b8b90c0f234435, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903347962069957063, guid: 66635756467f774488b8b90c0f234435, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66635756467f774488b8b90c0f234435, type: 3}
 --- !u!1001 &5322707004276329881
@@ -23508,7 +23516,7 @@ PrefabInstance:
     - target: {fileID: 5322707004174515998, guid: 8e8f18442992c2143b582c41f4bad923, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 1915276223}
+      objectReference: {fileID: 0}
     - target: {fileID: 5322707004174515998, guid: 8e8f18442992c2143b582c41f4bad923, type: 3}
       propertyPath: GameManager
       value: 
@@ -23659,15 +23667,27 @@ PrefabInstance:
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1915276223}
+      objectReference: {fileID: 466686128}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: baseTileMap
       value: 
       objectReference: {fileID: 995370999}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
+      propertyPath: cameraBaseY
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: pathTileMap
       value: 
       objectReference: {fileID: 1211317827}
+    - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
+      propertyPath: cameraGoUpBy
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
+      propertyPath: camera2ndBorder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: hidePathTileMap
       value: 

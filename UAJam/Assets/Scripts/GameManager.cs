@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         if (player.transform.position.y >= camera2ndBorder)
-            camera.GetComponent<Transform>().position = new Vector3(0, 2 * cameraGoUpBy, -10);
+            camera.GetComponent<Transform>().position = new Vector3(0, 2 * cameraGoUpBy - cameraBaseY, -10);
         else if(player.transform.position.y >= camera1stBorder && player.transform.position.y < camera2ndBorder)
             camera.GetComponent<Transform>().position = new Vector3(0, cameraGoUpBy, -10);
         else if (player.transform.position.y < camera1stBorder)

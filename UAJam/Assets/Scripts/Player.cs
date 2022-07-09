@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     [SerializeField] private List<Sprite> playerSprites;
+    private Animator animator;
+    
     
     Rigidbody2D rb;
     float horizontal;
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,25 +42,33 @@ public class Player : MonoBehaviour
         
         Debug.Log(horizontal + ", " + vertical);
 
-        if (horizontal == -1)
+        if (horizontal < 0)
         {
             spriteRenderer.sprite = playerSprites[2];
-            spriteRenderer.flipX = true;
+            //spriteRenderer.flipX = true;
+            if(!isAnimPlaying("playerSideAnimRev"))
+                animator.Play("playerSideAnimRev", 0, 0f);
         }
-        else if (horizontal == 1)
+        else if (horizontal > 0)
         {
             spriteRenderer.sprite = playerSprites[2];
             spriteRenderer.flipX = false;
+            if(!isAnimPlaying("playerSideAnim"))
+                animator.Play("playerSideAnim", 0, 0f);
         } 
-        else if (vertical == -1)
+        else if (vertical < 0)
         {
             spriteRenderer.sprite = playerSprites[0];
             spriteRenderer.flipX = false;
+            if(!isAnimPlaying("playerFrontAnim"))
+                animator.Play("playerFrontAnim", 0, 0f);
         }
-        else if (vertical == 1)
+        else if (vertical > 0)
         {
             spriteRenderer.sprite = playerSprites[1];
             spriteRenderer.flipX = false;
+            if(!isAnimPlaying("playerBackAnim"))
+                animator.Play("playerBackAnim", 0, 0f);
         }
             
         
@@ -86,4 +97,13 @@ public class Player : MonoBehaviour
             
         }
     }
+
+    private bool isAnimPlaying(string animName)
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName(animName) &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        return false;
+    }
+    
 }
