@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     //private GameManager gameManager;
     public bool hitMonster = false;
-
+    
     private SpriteRenderer spriteRenderer;
     [SerializeField] private List<Sprite> playerSprites;
     private Animator animator;
@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
 
     public float lastCampfireCoordX = 0f;
     public float lastCampfireCoordY = -7f;
-    
+
+    private KeyCode goBackKey = KeyCode.B;
     public bool hasControls = true;
     public float speed = 10f; 
     
@@ -34,6 +35,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (Input.GetKeyDown(goBackKey))
+        {
+            transform.position = new Vector3(lastCampfireCoordX, lastCampfireCoordY, 0f);
+        }
+        
         if (hasControls)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -75,7 +82,6 @@ public class Player : MonoBehaviour
             if(!isAnimPlaying("playerBackAnim"))
                 animator.Play("playerBackAnim", 0, 0f);
         }
-            
         
     }
 
@@ -99,7 +105,6 @@ public class Player : MonoBehaviour
 
                 }
             }*/
-            
         }
     }
 
