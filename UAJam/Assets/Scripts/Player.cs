@@ -5,15 +5,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //private GameManager gameManager;
+    public bool hitMonster = false;
 
     private SpriteRenderer spriteRenderer;
     [SerializeField] private List<Sprite> playerSprites;
     private Animator animator;
     
-    
     Rigidbody2D rb;
     float horizontal;
     float vertical;
+
+    public float lastCampfireCoordX = 0f;
+    public float lastCampfireCoordY = -7f;
     
     public bool hasControls = true;
     public float speed = 10f; 
@@ -24,6 +28,7 @@ public class Player : MonoBehaviour
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        //gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -76,9 +81,26 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Hit an evil spirit.");
         if (col.gameObject.CompareTag("Enemy"))
-            this.rb.position = new Vector3(0, -4, 0);
+        {
+            //hasControls = false;
+            //gameManager.ChangeSpiritWorld(true);
+            hitMonster = true;
+
+            /*if (hitMonster && !hasControls)
+            {
+                if (Input.anyKey)
+                {
+                    rb.position = new Vector3(lastCampfireCoordX, lastCampfireCoordY, 0);
+            
+                    gameManager.ChangeSpiritWorld(false);
+                    hitMonster = false;
+                    hasControls = true;
+
+                }
+            }*/
+            
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
