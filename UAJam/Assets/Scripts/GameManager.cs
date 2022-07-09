@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject TextPrompt;
     [SerializeField] private GameObject TextPromptBG;
+    
     public string TexttoPrompt;
     private bool isInSpiritWorld = false;
 
@@ -19,11 +20,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float camera1stBorder = 6f;
     [SerializeField] private float camera2ndBorder = 12f;
     
-    
     [SerializeField] private Player player;
     [SerializeField] private List<Campfire> campfires;
 
     [SerializeField] private List<EvilSpirit> evilSpirits;
+    [SerializeField] private string spiritText;
     
     [SerializeField] private List<Collectible> collectibles;
     private int collectiblesCollected = 0;
@@ -62,14 +63,26 @@ public class GameManager : MonoBehaviour
         if (player.hitMonster)
         {
 
+            playerInRange = true;
             player.hasControls = false;
-            isInSpiritWorld = true;
+            
+            TextPrompt.SetActive(true);
+            TextPromptBG.SetActive(true);
+                    
+            TexttoPrompt = spiritText; 
+            TextPrompt.GetComponent<Text>().text = TexttoPrompt;
+            //Dialogue
 
-            if (Input.anyKey)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                player.transform.position = new Vector3(player.lastCampfireCoordX, player.lastCampfireCoordY, 0);
                 player.hasControls = true;
                 player.hitMonster = false;
+                isInSpiritWorld = false;
+                
+                player.transform.position = new Vector3(player.lastCampfireCoordX, player.lastCampfireCoordY, 0f); 
+                
+                TextPrompt.SetActive((false));
+                TextPromptBG.SetActive(false);
             }
 
         }
@@ -95,8 +108,7 @@ public class GameManager : MonoBehaviour
             }
             else
                 Debug.Log("Not enough collectibles");
-            
-            
+
         }
 
         //Check if next to a campfire
@@ -110,6 +122,7 @@ public class GameManager : MonoBehaviour
                 player.lastCampfireCoordY = campfire.transform.position.y;
             }
         }
+        
         //Check if next to a collectible
         foreach (Collectible collectible in collectibles)
         {
