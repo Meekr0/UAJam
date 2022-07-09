@@ -1521,7 +1521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101564, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: MyText
-      value: TEST TEST
+      value: Chamomile is a symbol of purity and innocence.
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101565, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: m_RootOrder
@@ -2437,7 +2437,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1867879877366506632, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
       propertyPath: EndLVLMsg
-      value: Great Job! Lets now weave your garland, and let it down the stream
+      value: Great Job! Lets now weave your garland, and let it down the stream!
       objectReference: {fileID: 0}
     - target: {fileID: 1867879877366506633, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
       propertyPath: m_Sprite
@@ -15361,14 +15361,26 @@ PrefabInstance:
     - target: {fileID: 56752463951101538, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3dddbed655122414e82fce25bf0bdce2, type: 3}
+      objectReference: {fileID: 21300000, guid: a9ad20544ee6e2e48aa1417ff2ed7df8, type: 3}
+    - target: {fileID: 56752463951101538, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 56752463951101538, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 56752463951101538, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 56752463951101538, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101564, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: MyText
-      value: TEST TEST
+      value: Mallow is a symbol of Faith, Hope and Love.
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101565, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: m_RootOrder
@@ -15424,11 +15436,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 56752464982377256, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.009
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: 56752464982377256, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.222
+      value: -0.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
@@ -15878,7 +15890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101564, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: MyText
-      value: TEST TEST
+      value: Periwinkle is a symbol of eternal love and immortality of the soul.
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101565, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: m_RootOrder
@@ -16938,7 +16950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157237593839424504, guid: 733b191133070d649a3c4d2e7e99e9b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.698417
+      value: -5.76
       objectReference: {fileID: 0}
     - target: {fileID: 6157237593839424504, guid: 733b191133070d649a3c4d2e7e99e9b5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21237,7 +21249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101564, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: MyText
-      value: TEST TEST
+      value: Yarrow helps attract good and repel bad people.
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101565, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: m_RootOrder
