@@ -10,12 +10,12 @@ public class EvilSpirit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void setVisibility(bool val)
     {
-        this.spriteRenderer.enabled = val;
+        spriteRenderer.enabled = val;
     }
     
 }

@@ -22307,6 +22307,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1971035312}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
+      propertyPath: spiritText
+      value: Boooo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: baseTileMap
       value: 
       objectReference: {fileID: 995370999}
