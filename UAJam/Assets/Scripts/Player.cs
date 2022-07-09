@@ -21,19 +21,21 @@ public class Player : MonoBehaviour
 
     private KeyCode goBackKey = KeyCode.B;
     public bool hasControls = true;
-    public float speed = 10f; 
+    public float speed = 10f;
+
+    [SerializeField] private float boundaryPosLeft = -12f;
+    [SerializeField] private float boundaryPosRight = 12f;
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        //gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
         if (Input.GetKeyDown(goBackKey))
@@ -88,24 +90,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Enemy"))
-        {
-            //hasControls = false;
-            //gameManager.ChangeSpiritWorld(true);
             hitMonster = true;
-
-            /*if (hitMonster && !hasControls)
-            {
-                if (Input.anyKey)
-                {
-                    rb.position = new Vector3(lastCampfireCoordX, lastCampfireCoordY, 0);
-            
-                    gameManager.ChangeSpiritWorld(false);
-                    hitMonster = false;
-                    hasControls = true;
-
-                }
-            }*/
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -115,9 +100,9 @@ public class Player : MonoBehaviour
             float posX = rb.position.x;
             float newPosX = 0f;
             if (posX < 0)
-                newPosX = 12;
+                newPosX = boundaryPosRight;
             else if (posX > 0)
-                newPosX = -11;
+                newPosX = boundaryPosLeft;
             
             float posY = this.rb.position.y;
             rb.position = new Vector3(newPosX, posY, 0);
