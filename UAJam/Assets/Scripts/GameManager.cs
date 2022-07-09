@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +9,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     [SerializeField] private GameObject TextPrompt;
     [SerializeField] private GameObject TextPromptBG;
     
@@ -25,11 +28,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<EvilSpirit> evilSpirits;
     [SerializeField] private string spiritText;
     
-    [SerializeField] private List<Collectible> collectibles;
+    [SerializeField] public List<Collectible> collectibles;
     private int collectiblesCollected = 0;
     private int collectiblesCount;
 
-    [SerializeField] private Goal goal;
+    [SerializeField] public Goal goal;
 
     [SerializeField] private Tilemap baseTileMap;
     [SerializeField] private Tilemap pathTileMap;
@@ -39,6 +42,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] double maxDistanceToInteract = 1d;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         collectiblesCount = collectibles.Count;
@@ -86,7 +94,7 @@ public class GameManager : MonoBehaviour
 
         }
         
-        //Check if next to the goal
+        //Check if next to the goal ( end is near)
         distanceToPlayer = Vector3.Distance(goal.transform.position, player.transform.position);
         if (distanceToPlayer < maxDistanceToInteract)
         {
@@ -97,7 +105,10 @@ public class GameManager : MonoBehaviour
             {
                 player.speed = 0f;
                 player.hasControls = false;
-
+                
+                TextPrompt.SetActive(true);
+                TextPromptBG.SetActive(true);
+                TextPrompt.GetComponent<Text>().text = goal.EndLVLMsg;
                 //naciśnij spację by przejść do minigry
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
@@ -106,7 +117,21 @@ public class GameManager : MonoBehaviour
                 }
             }
             else
-                Debug.Log("Not enough collectibles");
+            {
+                TextPrompt.SetActive(true);
+                TextPromptBG.SetActive(true);
+                TextPrompt.GetComponent<Text>().text = "Not enough collectibles. (Press space to continue)";
+                player.hasControls = false;
+                player.speed = 0;
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    player.transform.position = new Vector3(player.lastCampfireCoordX, player.lastCampfireCoordY, 0);
+                    TextPrompt.SetActive(false);
+                    TextPromptBG.SetActive(false);
+                    player.hasControls = true;
+                    player.speed = 10;
+                }
+            }
 
         }
 
@@ -187,6 +212,7 @@ public class GameManager : MonoBehaviour
             camera.GetComponent<Transform>().position = new Vector3(0, cameraGoUpBy, -10);
         else if (player.transform.position.y < camera1stBorder)
             camera.GetComponent<Transform>().position = new Vector3(0, cameraBaseY, -10);
+
     }
     public void ChangeSpiritWorld(bool val)
     {
