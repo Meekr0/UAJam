@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         if (player.transform.position.y >= camera2ndBorder)
-            camera.GetComponent<Transform>().position = new Vector3(0, 2 * cameraGoUpBy, -10);
+            camera.GetComponent<Transform>().position = new Vector3(0, 2 * cameraGoUpBy - cameraBaseY, -10);
         else if(player.transform.position.y >= camera1stBorder && player.transform.position.y < camera2ndBorder)
             camera.GetComponent<Transform>().position = new Vector3(0, cameraGoUpBy, -10);
         else if (player.transform.position.y < camera1stBorder)
@@ -59,6 +59,22 @@ public class GameManager : MonoBehaviour
 
         bool playerInRange = false;
         double distanceToPlayer;
+        
+        //Check if player hit monster
+        if (player.hitMonster)
+        {
+
+            player.hasControls = false;
+            isInSpiritWorld = true;
+
+            if (Input.anyKey)
+            {
+                player.transform.position = new Vector3(player.lastCampfireCoordX, player.lastCampfireCoordY, 0);
+                player.hasControls = true;
+                player.hitMonster = false;
+            }
+
+        }
         
         //Check if next to the goal
         distanceToPlayer = Vector3.Distance(goal.transform.position, player.transform.position);
@@ -69,7 +85,6 @@ public class GameManager : MonoBehaviour
             //Only freeze if collected everything
             if (collectiblesCollected == collectiblesCount)
             {
-                Debug.Log("Enough collectibles");
                 player.speed = 0f;
                 player.hasControls = false;
 
@@ -90,8 +105,12 @@ public class GameManager : MonoBehaviour
         foreach (Campfire campfire in campfires)
         {
             distanceToPlayer = Vector3.Distance(campfire.transform.position, player.transform.position);
-            if(distanceToPlayer < maxDistanceToInteract)
+            if (distanceToPlayer < maxDistanceToInteract)
+            {
                 playerInRange = true;
+                player.lastCampfireCoordX = campfire.transform.position.x;
+                player.lastCampfireCoordY = campfire.transform.position.y;
+            }
         }
 
         //Check if next to a collectible
