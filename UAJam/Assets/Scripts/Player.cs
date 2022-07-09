@@ -22,19 +22,21 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        if (hasControls)
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+        }
     }
-    
+
     private void FixedUpdate()
     {
-        if(hasControls)
-            rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("adssad");
+        Debug.Log("Hit an evil spirit.");
         if (col.gameObject.tag == "Enemy")
             this.rb.position = new Vector3(0, -4, 0);
     }

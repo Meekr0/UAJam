@@ -15,7 +15,6 @@ public class EvilSpirit : MonoBehaviour
 
     public void setVisibility(bool val)
     {
-        //spriteRenderer.gameObject.SetActive(val);
         this.spriteRenderer.enabled = val;
     }
     

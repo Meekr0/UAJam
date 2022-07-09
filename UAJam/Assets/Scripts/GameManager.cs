@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
@@ -17,19 +19,24 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private List<Collectible> collectibles;
     private int collectiblesCollected = 0;
+    private int collectiblesCount;
+
+    [SerializeField] private Goal goal;
 
     [SerializeField] private Tilemap baseTileMap;
     [SerializeField] private Tilemap pathTileMap;
     [SerializeField] private Tilemap hidePathTileMap;
 
-    [SerializeField] double maxDistanceFromCampfire = 1d;
+    [FormerlySerializedAs("maxDistanceFromCampfire")] 
+    [SerializeField] double maxDistanceToInteract = 1d;
 
     // Start is called before the first frame update
     void Start()
     {
+        collectiblesCount = collectibles.Count;
         foreach (EvilSpirit evilSpirit in evilSpirits)
         {
-            evilSpirit.setVisibility(false);
+            evilSpirit.gameObject.GetComponent<EvilSpirit>().setVisibility(false);
         }
         baseTileMap.gameObject.SetActive(true);
         pathTileMap.gameObject.SetActive(false);
@@ -46,19 +53,49 @@ public class GameManager : MonoBehaviour
             camera.GetComponent<Transform>().position = new Vector3(0, 0, -10);
 
         bool playerInRange = false;
+        double distanceToPlayer;
+        
+        //Check if next to the goal
+        distanceToPlayer = Vector3.Distance(goal.transform.position, player.transform.position);
+        if (distanceToPlayer < maxDistanceToInteract)
+        {
+            
+            //Do canvas stuff here
+            //Only freeze if collected everything
+            if (collectiblesCollected == collectiblesCount)
+            {
+                Debug.Log("Enough collectibles");
+                player.speed = 0f;
+                player.hasControls = false;
+
+                //naciśnij spację by przejść do minigry
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    player.hasControls = true;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
+            }
+            else
+                Debug.Log("Not enough collectibles");
+            
+            
+        }
+
+        //Check if next to a campfire
         foreach (Campfire campfire in campfires)
         {
-            double distanceToPlayer = Vector3.Distance(campfire.transform.position, player.transform.position);
-            if(distanceToPlayer < maxDistanceFromCampfire)
+            distanceToPlayer = Vector3.Distance(campfire.transform.position, player.transform.position);
+            if(distanceToPlayer < maxDistanceToInteract)
                 playerInRange = true;
         }
 
+        //Check if next to a collectible
         foreach (Collectible collectible in collectibles)
         {
             if (!collectible.CheckIfCollected())
             {
-                double distanceToPlayer = Vector3.Distance(collectible.transform.position, player.transform.position);
-                if (distanceToPlayer < maxDistanceFromCampfire)
+                distanceToPlayer = Vector3.Distance(collectible.transform.position, player.transform.position);
+                if (distanceToPlayer < maxDistanceToInteract)
                 {
                     playerInRange = true;
                     player.hasControls = false;
@@ -71,6 +108,7 @@ public class GameManager : MonoBehaviour
                     {
                         player.hasControls = true;
                         isInSpiritWorld = false;
+                        collectiblesCollected++;
                         collectible.CollectMe();
                         collectible.gameObject.SetActive(false);
                     }
@@ -83,8 +121,6 @@ public class GameManager : MonoBehaviour
         else
             isInSpiritWorld = false;
 
-        Debug.Log(isInSpiritWorld);
-        
         if(isInSpiritWorld)
         {
             foreach (EvilSpirit evilSpirit in evilSpirits)
