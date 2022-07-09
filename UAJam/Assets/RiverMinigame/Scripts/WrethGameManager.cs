@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WrethGameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject TextBG;
+    [SerializeField] private GameObject Text;
     [SerializeField] private float TimeToSurvive = 30f;
     static public WrethGameManager Instance;
 
@@ -18,7 +20,9 @@ public class WrethGameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0;
         
+
     }
 
     // Update is called once per frame
