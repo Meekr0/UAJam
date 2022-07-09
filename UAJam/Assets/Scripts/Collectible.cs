@@ -5,6 +5,7 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
     [SerializeField] private FriendlySpirit friendlySpirit;
+    [SerializeField] public string MyText;
 
     private bool hasBeenCollected;
     // Start is called before the first frame update
