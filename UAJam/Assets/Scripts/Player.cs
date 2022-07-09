@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     float horizontal;
     float vertical;
-
+    
+    public bool hasControls = true;
     public float speed = 10f; 
     
     // Start is called before the first frame update
@@ -27,7 +28,8 @@ public class Player : MonoBehaviour
     
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+        if(hasControls)
+            rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
