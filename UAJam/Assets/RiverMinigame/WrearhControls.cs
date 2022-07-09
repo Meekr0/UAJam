@@ -26,18 +26,19 @@ public class WrearhControls : MonoBehaviour
 
     private void Movement()
     {
+        NewPosition = this.transform.position;
         if (Input.GetKey(KeyCode.W))
         {
-            NewPosition = this.transform.position - Vector3.down*MovementDelta;
+            NewPosition +=  - Vector3.down*MovementDelta;
         }
         if (Input.GetKey(KeyCode.S))
         {
-           NewPosition = this.transform.position + Vector3.down*MovementDelta;
+           NewPosition += Vector3.down*MovementDelta;
         }
         if (Input.GetKey(KeyCode.A))
-            NewPosition = this.transform.position + Vector3.left*MovementDelta;
+            NewPosition +=  Vector3.left*MovementDelta;
         if (Input.GetKey(KeyCode.D))
-            NewPosition = this.transform.position - Vector3.left*MovementDelta;
+            NewPosition +=  - Vector3.left*MovementDelta;
         if (NewPosition.x > maxX)
         {
             NewPosition.x = maxX;
