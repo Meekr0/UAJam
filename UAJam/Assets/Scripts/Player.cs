@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,13 @@ public class Player : MonoBehaviour
     
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, vertical * speed);   
+        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("adssad");
+        if (col.gameObject.tag == "Enemy")
+            this.rb.position = new Vector3(0, -4, 0);
+    }
 }
