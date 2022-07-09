@@ -52,15 +52,9 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-        if (player.transform.position.y >= camera2ndBorder)
-            camera.GetComponent<Transform>().position = new Vector3(0, 2 * cameraGoUpBy - cameraBaseY, -10);
-        else if(player.transform.position.y >= camera1stBorder && player.transform.position.y < camera2ndBorder)
-            camera.GetComponent<Transform>().position = new Vector3(0, cameraGoUpBy, -10);
-        else if (player.transform.position.y < camera1stBorder)
-            camera.GetComponent<Transform>().position = new Vector3(0, cameraBaseY, -10);
-
+        
         bool playerInRange = false;
         double distanceToPlayer;
         
@@ -170,6 +164,127 @@ public class GameManager : MonoBehaviour
             }
             pathTileMap.gameObject.SetActive(false);
         }
+        
+        
+    }
+    private void FixedUpdate()
+    {
+        if (player.transform.position.y >= camera2ndBorder)
+            camera.GetComponent<Transform>().position = new Vector3(0, 2 * cameraGoUpBy - cameraBaseY, -10);
+        else if(player.transform.position.y >= camera1stBorder && player.transform.position.y < camera2ndBorder)
+            camera.GetComponent<Transform>().position = new Vector3(0, cameraGoUpBy, -10);
+        else if (player.transform.position.y < camera1stBorder)
+            camera.GetComponent<Transform>().position = new Vector3(0, cameraBaseY, -10);
+
+        /*bool playerInRange = false;
+        double distanceToPlayer;
+        
+        //Check if player hit monster
+        if (player.hitMonster)
+        {
+
+            player.hasControls = false;
+            isInSpiritWorld = true;
+
+            if (Input.anyKey)
+            {
+                player.transform.position = new Vector3(player.lastCampfireCoordX, player.lastCampfireCoordY, 0);
+                player.hasControls = true;
+                player.hitMonster = false;
+            }
+
+        }
+        
+        //Check if next to the goal
+        distanceToPlayer = Vector3.Distance(goal.transform.position, player.transform.position);
+        if (distanceToPlayer < maxDistanceToInteract)
+        {
+            
+            //Do canvas stuff here
+            //Only freeze if collected everything
+            if (collectiblesCollected == collectiblesCount)
+            {
+                player.speed = 0f;
+                player.hasControls = false;
+
+                //naciśnij spację by przejść do minigry
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    player.hasControls = true;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
+            }
+            else
+                Debug.Log("Not enough collectibles");
+            
+            
+        }
+
+        //Check if next to a campfire
+        foreach (Campfire campfire in campfires)
+        {
+            distanceToPlayer = Vector3.Distance(campfire.transform.position, player.transform.position);
+            if (distanceToPlayer < maxDistanceToInteract)
+            {
+                playerInRange = true;
+                player.lastCampfireCoordX = campfire.transform.position.x;
+                player.lastCampfireCoordY = campfire.transform.position.y;
+            }
+        }
+        //Check if next to a collectible
+        foreach (Collectible collectible in collectibles)
+        {
+            if (!collectible.CheckIfCollected())
+            {
+                distanceToPlayer = Vector3.Distance(collectible.transform.position, player.transform.position);
+                if (distanceToPlayer < maxDistanceToInteract)
+                {
+                    playerInRange = true;
+                    player.hasControls = false;
+                    collectible.activateSpirit();
+
+                    TextPrompt.SetActive(true);
+                    TextPromptBG.SetActive(true);
+                    
+                    TexttoPrompt = collectible.MyText;
+                    TextPrompt.GetComponent<Text>().text = TexttoPrompt;
+                    //Dialogue
+
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        player.hasControls = true;
+                        isInSpiritWorld = false;
+                        collectiblesCollected++;
+                        collectible.CollectMe();
+                        collectible.gameObject.SetActive(false);
+                        TextPrompt.SetActive((false));
+                        TextPromptBG.SetActive(false);
+                    }
+                }
+            }
+        }
+
+        if (playerInRange)
+            isInSpiritWorld = true;
+        else
+            isInSpiritWorld = false;
+
+        if(isInSpiritWorld)
+        {
+            foreach (EvilSpirit evilSpirit in evilSpirits)
+            {
+                evilSpirit.setVisibility(true);
+            }
+            pathTileMap.gameObject.SetActive(true);
+        }
+        else
+        {
+            foreach (EvilSpirit evilSpirit in evilSpirits)
+            {
+                evilSpirit.setVisibility(false);
+            }
+            pathTileMap.gameObject.SetActive(false);
+        }*/
         
     }
     public void ChangeSpiritWorld(bool val)
