@@ -37,7 +37,7 @@ public class CampfireJumpScripts : MonoBehaviour
                 timer = Time.time;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) & MiniGameManagr.Instance.started )
         {
             Jumping();
         }

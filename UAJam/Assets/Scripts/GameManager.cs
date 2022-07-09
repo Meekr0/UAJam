@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject TextPrompt;
+    [SerializeField] private GameObject TextPromptBG;
+    public string TexttoPrompt;
     private bool isInSpiritWorld = false;
 
     [SerializeField] private GameObject camera;
@@ -112,7 +116,6 @@ public class GameManager : MonoBehaviour
                 player.lastCampfireCoordY = campfire.transform.position.y;
             }
         }
-
         //Check if next to a collectible
         foreach (Collectible collectible in collectibles)
         {
@@ -125,7 +128,11 @@ public class GameManager : MonoBehaviour
                     player.hasControls = false;
                     collectible.activateSpirit();
 
-                    //Canvas stuff here
+                    TextPrompt.SetActive(true);
+                    TextPromptBG.SetActive(true);
+                    
+                    TexttoPrompt = collectible.MyText;
+                    TextPrompt.GetComponent<Text>().text = TexttoPrompt;
                     //Dialogue
 
                     if (Input.GetKeyDown(KeyCode.Space))
@@ -135,6 +142,8 @@ public class GameManager : MonoBehaviour
                         collectiblesCollected++;
                         collectible.CollectMe();
                         collectible.gameObject.SetActive(false);
+                        TextPrompt.SetActive((false));
+                        TextPromptBG.SetActive(false);
                     }
                 }
             }
