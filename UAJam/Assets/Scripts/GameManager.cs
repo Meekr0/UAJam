@@ -10,7 +10,11 @@ public class GameManager : MonoBehaviour
     private bool isInSpiritWorld = false;
 
     [SerializeField] private GameObject camera;
-    [SerializeField] private float cameraBump = 11.5f;
+    [SerializeField] private float cameraBaseY = 2f;
+    [SerializeField] private float cameraGoUpBy = 11.5f;
+    [SerializeField] private float camera1stBorder = 6f;
+    [SerializeField] private float camera2ndBorder = 12f;
+    
     
     [SerializeField] private Player player;
     [SerializeField] private List<Campfire> campfires;
@@ -46,11 +50,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if(player.transform.position.y >= 6)
-            camera.GetComponent<Transform>().position = new Vector3(0, cameraBump, -10);
-        if (player.transform.position.y < 6)
-            camera.GetComponent<Transform>().position = new Vector3(0, 0, -10);
+        if (player.transform.position.y >= camera2ndBorder)
+            camera.GetComponent<Transform>().position = new Vector3(0, 2 * cameraGoUpBy, -10);
+        else if(player.transform.position.y >= camera1stBorder && player.transform.position.y < camera2ndBorder)
+            camera.GetComponent<Transform>().position = new Vector3(0, cameraGoUpBy, -10);
+        else if (player.transform.position.y < camera1stBorder)
+            camera.GetComponent<Transform>().position = new Vector3(0, cameraBaseY, -10);
 
         bool playerInRange = false;
         double distanceToPlayer;
