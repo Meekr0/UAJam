@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,12 @@ public class Collectible : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.collectibles.Add(this);
+        //GameManager.Instance.collectibles.Add(this);
         hasBeenCollected = false;
         friendlySpirit.gameObject.SetActive(false);
     }
     
+
     public void activateSpirit()
     {
         friendlySpirit.gameObject.SetActive(true);

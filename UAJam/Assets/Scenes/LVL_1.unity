@@ -6021,6 +6021,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6157237593839424454, guid: 733b191133070d649a3c4d2e7e99e9b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 733b191133070d649a3c4d2e7e99e9b5, type: 3}
+--- !u!1 &1165505311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6157237593839424452, guid: 733b191133070d649a3c4d2e7e99e9b5, type: 3}
+  m_PrefabInstance: {fileID: 1165505310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1192416721
 GameObject:
   m_ObjectHideFlags: 0
@@ -8680,7 +8685,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2372718148141972558, guid: 733b191133070d649a3c4d2e7e99e9b5, type: 3}
   m_PrefabInstance: {fileID: 1165505310}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1165505311}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8d21de1f8d3ff24f890878eb12b3c6d, type: 3}
@@ -8993,12 +8998,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: collectibles.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: evilSpirits.Array.data[0]
       value: 
-      objectReference: {fileID: 2021171205}
+      objectReference: {fileID: 1165505311}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: evilSpirits.Array.data[1]
       value: 
