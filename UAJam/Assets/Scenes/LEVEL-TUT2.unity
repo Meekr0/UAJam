@@ -5960,7 +5960,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6157237593839424452, guid: 733b191133070d649a3c4d2e7e99e9b5, type: 3}
       propertyPath: m_Name
-      value: EvilSpirit (3)
+      value: EvilSpirit
       objectReference: {fileID: 0}
     - target: {fileID: 6157237593839424455, guid: 733b191133070d649a3c4d2e7e99e9b5, type: 3}
       propertyPath: m_SortingOrder
@@ -8998,7 +8998,7 @@ PrefabInstance:
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: evilSpirits.Array.data[0]
       value: 
-      objectReference: {fileID: 2021171205}
+      objectReference: {fileID: 0}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: evilSpirits.Array.data[1]
       value: 
