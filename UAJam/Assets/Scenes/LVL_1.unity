@@ -1418,6 +1418,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1867879877366506632, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
+      propertyPath: EndLVLMsg
+      value: Congratulations! Let's start the journey!
+      objectReference: {fileID: 0}
     - target: {fileID: 1867879877366506633, guid: b0a2532a1b61d284b9466bcbd14b94f6, type: 3}
       propertyPath: m_SortingOrder
       value: 5
@@ -5531,7 +5535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101564, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: MyText
-      value: Touch butterfly and go. Good luck.
+      value: Touch the butterfly and go. Good luck!
       objectReference: {fileID: 0}
     - target: {fileID: 56752463951101565, guid: a74fc98a20fe5c24a81206dc724a079f, type: 3}
       propertyPath: m_RootOrder
@@ -8942,7 +8946,7 @@ PrefabInstance:
       objectReference: {fileID: 1502077386}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: spiritText
-      value: SPIRIT
+      value: Told you, don't get too close!
       objectReference: {fileID: 0}
     - target: {fileID: 7235596981071143567, guid: 403ca9b598b0d674fb610496339b6aab, type: 3}
       propertyPath: baseTileMap

@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField] private List<Sprite> playerSprites;
     private Animator animator;
+
+    [SerializeField] private AudioSource audioSource;
     
     Rigidbody2D rb;
     float horizontal;
@@ -32,8 +34,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponent<Animator>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,6 +52,17 @@ public class Player : MonoBehaviour
         {
             horizontal = Input.GetAxisRaw("Horizontal");
             vertical = Input.GetAxisRaw("Vertical");
+        }
+
+        if (horizontal != 0 || vertical != 0)
+        {
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+        }
+        else
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
         }
     }
 

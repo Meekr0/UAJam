@@ -2918,13 +2918,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b862e3923f5041d44b64e4701cd02d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameLostString: TEST TEST LOST
-  GameWinString: TEST TEST WIN
+  GameLostString: You lost. Try again.
+  GameWinString: Great job. Let's continue with the holiday!
   Clock: {fileID: 186924558}
   TextBG: {fileID: 128452400}
   Text: {fileID: 1149030466}
   TimeToSurvive: 30
-  EntryText: TEST TEST ENTRY (Press space to continue)
+  EntryText: ' Girls released wreaths with lit candles to the river. If the wreath
+    was poured out by a bachelor, it meant that she would get married quickly. If
+    he continued on, the girl was not going to be married soon. Press space to continue.'
 --- !u!1 &2114697534
 GameObject:
   m_ObjectHideFlags: 0
