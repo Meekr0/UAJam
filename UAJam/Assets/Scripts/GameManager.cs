@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private List<Campfire> campfires;
 
-    [SerializeField] private List<EvilSpirit> evilSpirits;
+    [SerializeField] private List<GameObject> evilSpirits;
     [SerializeField] private string spiritText;
     
     [SerializeField] public List<Collectible> collectibles;
@@ -50,9 +50,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         collectiblesCount = collectibles.Count;
-        foreach (EvilSpirit evilSpirit in evilSpirits)
+        foreach (GameObject evilSpirit in evilSpirits)
         {
-            evilSpirit.gameObject.GetComponent<EvilSpirit>().setVisibility(false);
+            evilSpirit.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
         baseTileMap.gameObject.SetActive(true);
         pathTileMap.gameObject.SetActive(false);
@@ -187,17 +187,17 @@ public class GameManager : MonoBehaviour
 
         if(isInSpiritWorld)
         {
-            foreach (EvilSpirit evilSpirit in evilSpirits)
+            foreach (GameObject evilSpirit in evilSpirits)
             {
-                evilSpirit.setVisibility(true);
+                evilSpirit.GetComponent<SpriteRenderer>().enabled=(true);
             }
             pathTileMap.gameObject.SetActive(true);
         }
         else
         {
-            foreach (EvilSpirit evilSpirit in evilSpirits)
+            foreach (GameObject evilSpirit in evilSpirits)
             {
-                evilSpirit.setVisibility(false);
+                evilSpirit.GetComponent<SpriteRenderer>().enabled=(false);
             }
             pathTileMap.gameObject.SetActive(false);
         }

@@ -2923,7 +2923,7 @@ MonoBehaviour:
   Clock: {fileID: 186924558}
   TextBG: {fileID: 128452400}
   Text: {fileID: 1149030466}
-  TimeToSurvive: 2
+  TimeToSurvive: 30
   EntryText: TEST TEST ENTRY (Press space to continue)
 --- !u!1 &2114697534
 GameObject:

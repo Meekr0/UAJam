@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/IntroScene.unity
     guid: 32bb3980f08bee24792974fa352a69ea
+  - enabled: 1
+    path: Assets/Scenes/LEVEL-TEMP2.unity
+    guid: 14c483968d7f1cf4eb8843132764aff2
   - enabled: 1
     path: Assets/CampFireMinigame/OgniskoMinigame.unity
     guid: 1d3824db8def05f4e8c04c76b5558c15
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/RiverMinigame/RiverMinigame.unity
     guid: 19683a1c939b6ef40b82d8a1270b8585
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: cf12ac67be564244ba52261e53212684
   m_configObjects: {}

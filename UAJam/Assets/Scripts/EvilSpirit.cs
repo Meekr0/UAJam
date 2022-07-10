@@ -12,10 +12,6 @@ public class EvilSpirit : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-    public void setVisibility(bool val)
-    {
-        spriteRenderer.enabled = val;
-    }
+    
     
 }
