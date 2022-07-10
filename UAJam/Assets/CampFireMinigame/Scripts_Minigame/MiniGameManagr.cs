@@ -49,7 +49,10 @@ public class MiniGameManagr : MonoBehaviour
             outro.gameObject.SetActive(true);
             end = !end;
             if (Input.anyKey & end)
+            {
+                Time.timeScale = 1;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
 
         }
     }
