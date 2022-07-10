@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class MiniGame_RiverEnemy : MonoBehaviour
 {
-    private float speed = 0.01f;
+    private float speed = 0.1f;
     [SerializeField] private Sprite[] Sprites;
     private void OnCollisionEnter2D(Collision2D collision)
     {
