@@ -16,5 +16,9 @@ public class Manager : MonoBehaviour
         Debug.Log("quit");
         Application.Quit();
     }
+    public void Restart()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 }
 
