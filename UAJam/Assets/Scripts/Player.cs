@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float boundaryPosLeft = -12f;
     [SerializeField] private float boundaryPosRight = 12f;
     
+    
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -52,7 +54,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+        if (hasControls)
+            rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+        else
+            rb.velocity = new Vector2(0f, 0f);
         
         Debug.Log(horizontal + ", " + vertical);
 
